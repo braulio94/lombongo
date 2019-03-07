@@ -15,9 +15,9 @@ class _AlertComponentsState extends State<AlertComponents> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Tab(text: 'Renda', icon: Icon(Icons.attach_money)),
-        Tab(text: 'Despesa', icon: Icon(Icons.money_off)),
-        Tab(text: 'Categoria', icon: Icon(Icons.dashboard)),
+        Tab(text: 'Renda', icon: Icon(Icons.attach_money), child: Renda()),
+        Tab(text: 'Despesa', icon: Icon(Icons.money_off), child: Despesa()),
+        Tab(text: 'Categoria', icon: Icon(Icons.dashboard), child: Categoria()),
       ].map((menu){
         return Row(
           children: <Widget>[
@@ -30,16 +30,7 @@ class _AlertComponentsState extends State<AlertComponents> {
               child: MaterialButton(
                 onPressed: () {
                   Navigator.pop(context);
-                  Navigator.push(context, MaterialPageRoute(builder: (context){
-                    switch(menu.text){
-                      case 'Renda':
-                        return Renda();
-                      case 'Despesa':
-                        return Despesa();
-                      case 'Categoria':
-                        return Categoria();
-                    }
-                  }));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> menu.child));
                 },
                 child: Text(menu.text),
               ),
