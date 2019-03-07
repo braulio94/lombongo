@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:lombongo/components/alert.dart';
-import 'package:lombongo/pages/home.dart';
 class Renda extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -21,8 +20,8 @@ class _RendaState extends State<Renda> {
           IconButton(
             icon: Icon(Icons.home),
             onPressed: () {
-              Navigator.pop(context, MaterialPageRoute(builder: (context) => AlertComponents()));
-              Navigator.pop(context, MaterialPageRoute(builder: (context) => Home()));
+              //Navigator.pop(context, MaterialPageRoute(builder: (context) => AlertComponents()));
+              //Navigator.pop(context, MaterialPageRoute(builder: (context) => Home()));
             },
           ),
           IconButton(
@@ -41,31 +40,6 @@ class _RendaState extends State<Renda> {
             },
           ),          
         ],
-      ),
-      bottomNavigationBar: Container(
-        color: Colors.white,
-        child: Row(
-          children: <Widget>[
-            Expanded(
-              child: ListTile(
-                title: Text('Balanço: '),
-                subtitle: Text("\$720"),
-              ),
-            ),
-            Expanded(
-              child: ListTile(
-                title: Text('Despesas: '),
-                subtitle: Text("\$230", style: TextStyle(color: Colors.red)),
-              ),
-            ),
-            Expanded(
-              child: IconButton(
-                icon: Icon(Icons.remove_red_eye, color: Colors.green),
-                onPressed: () {},
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }

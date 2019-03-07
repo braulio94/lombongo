@@ -11,6 +11,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  List<int> _itemList = [];
+
   @override
   Widget build(BuildContext context) {
     final mediaQuerydata = MediaQuery.of(context);
@@ -39,8 +42,9 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
-      body: Stack(
-        children: <Widget>[
+      body: ListView(
+        children: _itemList.isEmpty?
+        [
           Center(
             child: ListTile(
               title: Icon(
@@ -53,8 +57,13 @@ class _HomeState extends State<Home> {
                 child: Text('não desperdice lombongo!', style: TextStyle(fontSize: 18.0)),
               ),
             ),
-          ),
-        ],
+          )
+        ]:
+        _itemList.map((value){
+          return ListTile(
+            title: Text('$value'),
+          );
+        }).toList(),
       ),
       bottomNavigationBar: Container(
         color: Colors.white,
